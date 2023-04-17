@@ -1,0 +1,47 @@
+python -m venv venv_D
+venv_D\Scripts\activate
+
+python -m pip install Django
+django-admin startproject Django_1
+python .\manage.py runserver
+python .\manage.py migrate
+python .\manage.py createsuperuser
+
+INSTALLED_APPS = [
+    'django.contrib.sites',
+    'django.contrib.flatpages',]
+SITE_ID = 1
+    MIDDLEWARE = [
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware']
+
+from django.urls import path, include
+urlpatterns = [
+    path('pages/', include('django.contrib.flatpages.urls')),
+]
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+{% load static %}
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+
+
+
+Что такое Django?
+
+Посмотреть ответ
+Фреймворк для разработки веб-приложений.
+→ Что такое приложение в Django?
+
+Посмотреть ответ
+Набор файлов для описания определённого функционала в проекте.
+→ Что такое миграция?
+
+Посмотреть ответ
+Файл преднастройки базы данных.
+→ Что такое виртуальное окружение?
+
+Посмотреть ответ
+Изолированная среда разработки со своими зависимостями.
